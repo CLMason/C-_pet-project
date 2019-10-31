@@ -1,0 +1,27 @@
+@model CsharpProject.Models.Pet
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Age</th>
+            <th>Picture</th>
+        </tr>
+         </tr>
+        <!-- want to create a row for each pet in our list of pets  -->
+    
+        <tr>
+            <td><a href="@ViewBag.Pet.PetId">@ViewBag.Pet.PetName</a</td>
+            <td>@ViewBag.Pet.PetBreed</td>
+            <td>@ViewBag.Pet.PetAge</td>
+            @{
+                var imgSrc = @ViewBag.Pet.Image;
+                if (@ViewBag.Pet.Image != null) {
+                    var base64 = Convert.ToBase64String(@ViewBag.Pet.Image);
+                    imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                }
+
+            }
+            <td><img src="@imgSrc" class="doggo-image"/></td>
+        </tr>
+    </table>

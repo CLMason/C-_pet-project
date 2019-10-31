@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "View Pets";
+}
+@model CsharpProject.Models.Pet
+
+<style>
+    .display-4{
+        display:inline-block;
+    }
+    .container{
+        display:inline-block;
+        margin-left:32px;
+    }
+    .card{
+        display:inline-block;
+    }
+    .logout{
+       
+        display:inline-block;
+    }
+    .play{
+        display:inline-block;
+        margin-left:500px;
+    }
+</style>
+<div>
+    <h1 class="display-4">Available pets</h1>
+    <a class="play" href="/logout">Play Dates |</a>
+    <a class="logout" href="/logout">Logout</a>
+</div>
+<div class="container-fluid">
+        @foreach (var pet in ViewBag.Pets)
+        {
+            <div class="card" style="width: 15rem;">
+
+                @{
+                    var imgSrc = @pet.Image;
+                    if (@pet.Image != null) {
+                        var base64 = Convert.ToBase64String(@pet.Image);
+                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+
+                }
+                <img class="card-img-top" src="@imgSrc" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">@pet.PetName</p>
+                    <a class="btn btn-primary" href="@pet.PetId" role="button">View</a>
+                </div>
+            </div>   
+
+        }
+
+</div>

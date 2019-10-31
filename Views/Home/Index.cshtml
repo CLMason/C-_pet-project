@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Barriecito|Ubuntu&display=swap" rel="stylesheet">
+</head>
+<style>
+    .container {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-family: 'Barriecito', cursive;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    h1{
+        color:black;
+        position: absolute;
+        top: 8px;
+      
+    }
+    p{
+        position: absolute;
+        top:140px;
+        color:black;
+        left:40px;
+    }
+    .ptag{
+        position:absolute;
+        top:500px;
+        left:40px;
+    }
+    .col-sm-4{
+        position:absolute;
+        top: 180px;
+        color:black;
+        padding:10px;
+    }
+    
+</style>
+<body style="background-image:url('Image/dog2.jpg')">
+    <div class="container">
+        <!-- <img src="" alt="dog" style="width:100%"> -->
+        <div class="title">
+            <h1 class="display-4">Welcome to Dojo Animal Shelter</h1>
+            <p><strong>Please login to view our adoptable pets</strong></p>
+            <p class="ptag"><strong>Don't have an account? Please <a href="/register">register</a></strong></p>
+        </div>
+    
+        <div class="col-sm-4">
+            <partial name="_Login.cshtml"></partial>
+        </div>
+    </div>
+
+</body>

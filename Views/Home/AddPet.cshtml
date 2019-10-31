@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "PlayDate";
+}
+@model Pet
+<body>
+    <div class="text-center jumbotron">
+    <h1 class="display-4">Add a New Pet</h1>
+</div>
+   <form action="/admin/new" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <!-- <span asp-validation-for="PetBreed"></span> "asp-for" are helpers to prevent us from righting the same code -->
+                <label asp-for="PetName">Name:</label>
+                <input asp-for="PetName" class="form-control">
+            </div>
+
+            <div class="form-group col-sm-6">
+                <!-- <span asp-validation-for="PetBreed"></span> -->
+                <label asp-for="PetBreed">Breed:</label>
+                <input asp-for="PetBreed" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <!-- <span asp-validation-for="PetAge"></span> -->
+                <label asp-for="PetAge">Pet's Age</label>
+                <input asp-for="PetAge" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <!-- <span asp-validation-for="PetAge"></span> -->
+                <label asp-for="Image">Image</label>
+                <input type="file" asp-for="Image" class="form-control" name="Image">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <!-- <span asp-validation-for="Description"></span> -->
+                    <label asp-for="Description">Description:</label>
+                    <textarea asp-for="Description" name="Description" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+            
+        <input value="Add Pet" type="submit" class="addButton"> 
+    </form>
+</body>
